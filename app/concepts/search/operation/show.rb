@@ -13,7 +13,7 @@ module Search
       ITEM_NOT_FOUND = 'Not found!'.freeze
       JSON_FILE = JSON.parse(File.read('data.json'))
 
-      def main_search(ctx, _options)
+      def main_search(ctx, _options)         #main search logic implemented in this method
         search_word = ctx[:params].downcase
         ctx[:words] = []
         JSON_FILE.each do |line|
@@ -22,17 +22,17 @@ module Search
         end
       end
 
-      def reverse_string(word)
+      def reverse_string(word)               #this method transforms to reverse string (lisp common == common lisp)
         word.split.reverse.join(' ')
       end
 
-      def check_amount(ctx, _options)
+      def check_amount(ctx, _options)       #this method checks if search word include only 1 word and returns in next method (type_n_designed) to avoid errors 
         return if ctx[:params].split.length == 1
 
         true
       end
 
-      def type_n_designed(ctx, _options)
+      def type_n_designed(ctx, _options)   #this method finds result that matchs in different fields
         search_word = ctx[:params].downcase
         ctx[:words] = []
         JSON_FILE.each do |i|
@@ -43,11 +43,11 @@ module Search
         end
       end
 
-      def negative_word?(ctx, _options)
+      def negative_word?(ctx, _options)   #this method checks if search word include negative symbol
         ctx[:params].split.last.include?('-')
       end
 
-      def negative_search(ctx, _options)
+      def negative_search(ctx, _options)  #this method finds negative results that matchs in different fields
         search_word = ctx[:params].downcase
         ctx[:words] = []
         new_words = search_word.tr('-', '').split
@@ -58,7 +58,7 @@ module Search
       end
 
       def show_error(_options, ctx)
-        ctx[:words] << ITEM_NOT_FOUND
+        ctx[:words] << ITEM_NOT_FOUND     #this method returns 'not found' if search result is empty
       end
     end
   end
