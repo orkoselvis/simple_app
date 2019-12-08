@@ -1,0 +1,6 @@
+<h1>Search task:</h1>
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:text, "Search for:") %>
+  <%= text_field_tag(:text) %>
+  <%= submit_tag("Go!") %>
+<% end %>

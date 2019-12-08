@@ -1,0 +1,13 @@
+<h2> Search result:</h2>
+<% if custom == ['Not found!'] %>
+  <%= "Not found!"%>
+  <br><br>
+<% else %>
+  <% custom.each do |i| %> 
+    <li> <strong> Name: </strong><%= i['Name'] %> </li>
+    <li> <strong> Type: </strong><%= i['Type'] %> </li>
+    <li> <strong> Designed by: </strong><%= i['Designed by'] %> </li>
+    <br>
+  <% end %>
+<% end %>
+<a href="/search">Return back</a>
