@@ -1,7 +1,7 @@
 module Search
   module Cell
     class Show < Trailblazer::Cell
-      def custom
+      def result
         model[:words]
       end
     end
