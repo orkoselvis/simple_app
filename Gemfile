@@ -7,7 +7,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cells-erb'
 gem 'cells-rails'
 gem 'jbuilder', '~> 2.7'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0.0'
 gem 'rubocop', require: false
 gem 'sass-rails', '~> 5'
